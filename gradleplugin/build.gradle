@@ -1,0 +1,59 @@
+plugins {
+    id 'groovy' // Groovy Language
+    id 'org.jetbrains.kotlin.jvm' // Kotlin
+    id 'java-gradle-plugin' // Java Gradle Plugin
+    id 'maven-publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src/main/groovy'
+        }
+
+        java {
+            srcDir 'src/main/java'
+        }
+
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+gradlePlugin {
+    plugins {
+        modularPlugin {
+            // Plugin id.
+            id = 'com.tungbo.gradleplugin'
+            // Plugin implementation.
+            implementationClass = 'com.tungbo.gradleplugin.TestGradlePlugin'
+        }
+    }
+}
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            // 发布地址：直接发布到项目本地路径
+//            repository(url: uri('../repository'))
+//            // 组件信息：com.pengxr.demo:maven:v1.0.0
+//            pom.groupId = "com.tungbo.gradleplugin"
+//            pom.artifactId = "tungbo"
+//            pom.version = "v1.0.0"
+//        }
+//    }
+//}
+group = 'com.tungbo.gradleplugin'
+version = '1.0.0'
+publishing {
+    repositories {
+        maven {
+            url = uri('../localMavenRepository/snapshot')
+        }
+    }
+}

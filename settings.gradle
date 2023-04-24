@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url "$rootDir/localMavenRepository/snapshot" }
+        maven { url "$rootDir/localMavenRepository/release" }
+    }
+
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "$rootDir/localMavenRepository/snapshot" }
+        maven { url "$rootDir/localMavenRepository/release" }
+    }
+}
+rootProject.name = "ASM Application"
+include ':app'
+include ':gradleplugin'
