@@ -31,23 +31,11 @@ gradlePlugin {
             // Plugin id.
             id = 'com.tungbo.gradleplugin'
             // Plugin implementation.
-            implementationClass = 'com.tungbo.gradleplugin.TestGradlePlugin'
+            implementationClass = 'com.tungbo.gradleplugin.WyxGradlePlugin'
         }
     }
 }
 
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            // 发布地址：直接发布到项目本地路径
-//            repository(url: uri('../repository'))
-//            // 组件信息：com.pengxr.demo:maven:v1.0.0
-//            pom.groupId = "com.tungbo.gradleplugin"
-//            pom.artifactId = "tungbo"
-//            pom.version = "v1.0.0"
-//        }
-//    }
-//}
 group = 'com.tungbo.gradleplugin'
 version = '1.0.0'
 publishing {
